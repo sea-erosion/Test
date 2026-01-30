@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よくある質問 | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社へのよくある質問とその回答をまとめました。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-category {
+      margin-bottom: 3rem;
+    }
+
+    .faq-category-title {
+      font-size: 1.5rem;
+      color: #00ffff;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .faq-item {
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .faq-question-text {
+      color: #e5e7eb;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .faq-icon {
+      color: #00ffff;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-content {
+      padding: 0 1.5rem 1.5rem;
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 1000px;
+    }
+
+    .warning-box {
+      background: rgba(255, 77, 77, 0.1);
+      border: 1px solid #ff4d4d;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .warning-box p {
+      color: #ff4d4d;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .redacted {
+      background: #000;
+      color: #000;
+      padding: 0 0.3rem;
+      user-select: none;
+    }
+
+    .redacted:hover {
+      background: rgba(0, 255, 255, 0.2);
+      color: #00ffff;
+    }
+
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; }
+      92%, 94%, 96%, 98% { opacity: 0.8; }
+    }
+
+    .search-box {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: #e5e7eb;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="news.html">ニュース</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>よくある質問</h2>
+        <p class="lead">お客様からよくいただくご質問にお答えします</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container faq-container">
+        <div class="search-box">
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="キーワードで検索..." 
+            id="searchInput"
+            oninput="searchFAQ()"
+          >
+        </div>
+
+        <!-- サービスについて -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">サービスについて</h3>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">どのような研究分野に対応していますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                当社は、海洋学、地質学、物理学を中心に、幅広い研究分野に対応しています。
+                特に、<span class="glitch">境界領域</span>の研究や、
+                従来の理論では説明しきれない現象の調査に強みを持っています。
+                具体的なご相談は、お問い合わせフォームよりご連絡ください。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">料金体系について教えてください</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                料金は、プロジェクトの規模、期間、内容により個別に設定されます。
+                一般的な研究支援サービスは月額50万円〜、
+                技術検証サービスは案件ごとのお見積もりとなります。
+                <span class="glitch">特殊対応サービス</span>の料金については、
+                機密保持契約締結後にご説明いたします。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">緊急対応は可能ですか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                はい、24時間365日の緊急対応体制を整えています。
+                <span class="glitch redacted">異常事象</span>の発生時には、
+                最短2時間以内に現場へ到着可能です。
+                緊急連絡先: 03-XXXX-XXXX（専用ホットライン）
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 契約・守秘義務について -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">契約・守秘義務について</h3>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">機密情報の取り扱いは？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                当社では、全従業員が包括的な機密保持契約を締結しており、
+                業務上知り得た情報は厳重に管理されます。
+                データは<span class="glitch">暗号化</span>され、
+                <span class="redacted">特殊な保管施設</span>にて管理されます。
+                また、プロジェクト終了後も無期限に守秘義務は継続します。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">契約期間の縛りはありますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                通常の研究支援サービスは、最低3ヶ月からの契約となります。
+                ただし、<span class="glitch">特殊案件</span>については、
+                状況に応じて柔軟に対応させていただきます。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text glitch">情報の削除依頼は可能ですか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <span class="glitch">はい、可能です。</span>
+                <span class="redacted">特定の条件下</span>において、
+                記録された情報の削除または改変を行うことがあります。
+                ただし、この措置は<span class="redacted">極めて機密性の高い情報</span>に限定され、
+                詳細については別途ご相談ください。
+                <div class="warning-box">
+                  <p>※ 本項目は通常のクライアント向けではありません</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技術・設備について -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">技術・設備について</h3>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">どのような観測機器を使用していますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                当社独自開発の「イカリ」シリーズを中心に、
+                最新の観測・分析機器を使用しています。
+                特に<span class="glitch">空間歪曲の検知</span>、
+                <span class="glitch redacted">次元境界の測定</span>などにおいて、
+                世界最高水準の精度を誇ります。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">観測データの精度は？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                最新の「イカリ-VI」システムにより、
+                従来比300%の精度向上を実現しています。
+                <span class="glitch">微細な異常</span>も見逃さず、
+                <span class="redacted">前兆の早期検知</span>が可能です。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text glitch">「モジュール」とは何ですか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <span class="glitch">「モジュール」は当社が開発した</span>
+                <span class="redacted">特殊な装置</span>です。
+                詳細は機密事項のため公開できませんが、
+                <span class="glitch redacted">空間の安定化</span>および
+                <span class="redacted">境界の固定</span>に使用されます。
+                <div class="warning-box">
+                  <p>⚠️ 本装置の詳細情報は権限レベル3以上の方のみ閲覧可能です</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 採用・キャリアについて -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">採用・キャリアについて</h3>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">どのような人材を求めていますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                理学系または工学系のバックグラウンドを持ち、
+                科学的探求心と高い倫理観を兼ね備えた方を求めています。
+                また、<span class="glitch">想定外の事態</span>にも冷静に対処できる
+                精神的強靭さも重要な資質です。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">未経験でも応募できますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                職種により異なりますが、研修制度が充実しているため、
+                未経験の方でもご応募いただけます。
+                ただし、入社後は<span class="glitch redacted">特殊な訓練プログラム</span>を
+                受けていただく必要があります。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text glitch">退職は自由にできますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                原則として、退職は可能です。
+                ただし、退職時には<span class="redacted">完全な機密保持契約</span>を
+                締結していただきます。
+                また、<span class="glitch redacted">特定の業務に従事した方</span>については、
+                <span class="redacted">記憶の整理</span>などの手続きが必要となる場合があります。
+                <div class="warning-box">
+                  <p>⚠️ 詳細は面接時にご説明いたします</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- その他 -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">その他</h3>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">見学は可能ですか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                本社オフィスの見学は、事前予約により可能です。
+                ただし、<span class="glitch">研究施設</span>および
+                <span class="redacted">観測拠点</span>の見学は、
+                セキュリティ上の理由により原則としてお断りしております。
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text glitch">「海蝕現象」とは何ですか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <span class="glitch redacted">この項目は削除されました</span>
+                <div class="warning-box">
+                  <p>⚠️ ERROR: UNAUTHORIZED_ACCESS</p>
+                  <p>⚠️ この情報へのアクセスは記録されました</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span class="faq-question-text">お問い合わせへの回答はどのくらいかかりますか？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                通常、2営業日以内にご返信いたします。
+                ただし、<span class="glitch">緊急案件</span>については
+                即日対応させていただきます。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 3rem; text-align: center;">
+          <h3 style="color: #00ffff; margin-bottom: 1rem;">解決しない場合は</h3>
+          <p style="color: #9ca3af; margin-bottom: 2rem;">
+            上記で解決しない場合は、お気軽にお問い合わせください。
+          </p>
+          <a href="contact.html" class="button">お問い合わせフォームへ</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFAQ(element) {
+      const item = element.parentElement;
+      const wasActive = item.classList.contains('active');
+      
+      // Close all items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+      });
+      
+      // Toggle current item
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    function searchFAQ() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.faq-item');
+      
+      items.forEach(item => {
+        const question = item.querySelector('.faq-question-text').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // If search is empty, show all
+      if (searchTerm === '') {
+        items.forEach(item => item.style.display = 'block');
+      }
+    }
+
+    // Easter egg: Search for "海蝕"
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      if (e.target.value.toLowerCase().includes('海蝕') || 
+          e.target.value.toLowerCase().includes('kaishoku')) {
+        console.log('%c⚠️ 警告', 'color: #ff4d4d; font-size: 16px; font-weight: bold;');
+        console.log('%c機密キーワードが検出されました', 'color: #ff4d4d; font-size: 14px;');
+        console.log('%cアクセスコード: /internal/', 'color: #00ffff; font-size: 12px;');
+      }
+    });
+
+    // Console message
+    console.log('%cFAQシステム v2.3', 'color: #00ffff; font-size: 14px;');
+    console.log('%c隠されたQ&Aを見るには...', 'color: #9ca3af; font-size: 12px;');
+    console.log('%c[ヒント: "海蝕"で検索してみてください]', 'color: #6b7280; font-size: 10px;');
+  </script>
+</body>
+</html>

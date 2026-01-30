@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事業内容 | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社が提供する研究支援、技術検証、資料整理などのサービス内容をご紹介します。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .service-detail {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+    
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      color: #00ffff;
+      font-weight: bold;
+    }
+    
+    .service-subtitle {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+    
+    .service-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .feature-item {
+      background: rgba(0, 255, 255, 0.05);
+      border-left: 3px solid #00ffff;
+      padding: 1rem;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .feature-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .feature-desc {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    
+    .case-study {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    
+    .case-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .case-content {
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+    
+    .redacted {
+      background: #000;
+      color: #000;
+      padding: 0 0.5rem;
+      user-select: none;
+    }
+    
+    .redacted:hover {
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      cursor: help;
+    }
+    
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+    }
+    
+    .price-table th,
+    .price-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    }
+    
+    .price-table th {
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      font-weight: bold;
+    }
+    
+    .price-table td {
+      color: #9ca3af;
+    }
+    
+    .warning-box {
+      background: rgba(255, 77, 77, 0.1);
+      border: 1px solid #ff4d4d;
+      padding: 1.5rem;
+      border-radius: 4px;
+      margin: 2rem 0;
+    }
+    
+    .warning-box h4 {
+      color: #ff4d4d;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .warning-box p {
+      color: #fca5a5;
+      line-height: 1.6;
+    }
+    
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+    
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+      92% { opacity: 0.8; transform: translateX(-2px); }
+      94% { opacity: 1; transform: translateX(2px); }
+      96% { opacity: 0.8; transform: translateX(-1px); }
+      98% { opacity: 1; transform: translateX(1px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>事業内容</h2>
+        <p class="lead">専門性と中立性に基づく、包括的な研究支援サービス</p>
+      </div>
+    </section>
+
+    <!-- サービス1: 研究支援 -->
+    <section class="section">
+      <div class="container">
+        <div class="service-detail">
+          <div class="service-header">
+            <div class="service-icon">📊</div>
+            <div>
+              <div class="service-title">研究支援サービス</div>
+              <div class="service-subtitle">Research Support Services</div>
+            </div>
+          </div>
+          
+          <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.8;">
+            学術機関、民間企業、<span class="glitch">政府関連組織</span>における研究活動を多角的にサポートします。
+            研究計画の立案から、データ収集、分析、レポート作成まで、
+            研究のあらゆるフェーズにおいて専門的な支援を提供します。
+          </p>
+          
+          <div class="service-features">
+            <div class="feature-item">
+              <div class="feature-title">データ収集・整理</div>
+              <div class="feature-desc">
+                フィールドワーク、観測、測定など、
+                研究に必要なデータの収集と体系的な整理を実施します。
+                <span class="glitch">特殊な環境下でのデータ収集にも対応</span>。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">統計分析</div>
+              <div class="feature-desc">
+                収集したデータの統計処理、可視化、
+                傾向分析を実施。最新の分析手法を用いて、
+                データから有意義な知見を導き出します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">文献調査</div>
+              <div class="feature-desc">
+                国内外の学術論文、技術資料を網羅的に調査。
+                最新の研究動向を把握し、研究の位置づけを明確化します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">レポート作成</div>
+              <div class="feature-desc">
+                研究成果を分かりやすく、説得力のある形式でまとめます。
+                学術論文、報告書、プレゼンテーション資料など、
+                用途に応じた形式で提供します。
+              </div>
+            </div>
+          </div>
+          
+          <div class="case-study">
+            <div class="case-title">
+              📋 事例紹介（一部）
+            </div>
+            <div class="case-content">
+              <strong>海洋生態系の長期モニタリング調査</strong><br>
+              依頼元: 国立大学海洋研究所<br>
+              期間: 2020年〜継続中<br>
+              内容: 駿河湾における海洋生物の分布調査。季節変動、
+              <span class="glitch redacted">異常個体の出現頻度</span>、
+              環境要因との相関分析を実施。年4回の定期調査に加え、
+              <span class="glitch redacted">緊急時の臨時調査</span>も実施。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- サービス2: 技術検証 -->
+    <section class="section alt">
+      <div class="container">
+        <div class="service-detail">
+          <div class="service-header">
+            <div class="service-icon">🔬</div>
+            <div>
+              <div class="service-title">技術検証サービス</div>
+              <div class="service-subtitle">Technical Validation Services</div>
+            </div>
+          </div>
+          
+          <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.8;">
+            新技術、新手法、新製品の有効性を客観的に評価します。
+            第三者機関としての中立的な立場から、科学的根拠に基づいた検証を実施し、
+            信頼性の高い評価レポートを提供します。
+          </p>
+          
+          <div class="service-features">
+            <div class="feature-item">
+              <div class="feature-title">性能評価</div>
+              <div class="feature-desc">
+                製品・技術の性能を定量的に測定。
+                カタログスペックとの整合性、
+                実環境下での性能維持を確認します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">安全性評価</div>
+              <div class="feature-desc">
+                使用時のリスク分析、
+                <span class="glitch">異常事態発生時の挙動</span>、
+                長期使用における劣化傾向などを評価します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">比較検証</div>
+              <div class="feature-desc">
+                類似製品・技術との客観的な比較。
+                それぞれの長所・短所を明確化し、
+                最適な選択をサポートします。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title glitch">特殊環境下テスト</div>
+              <div class="feature-desc glitch">
+                通常では想定されない環境下での動作検証。
+                <span class="redacted">極限状態</span>における信頼性を確認します。
+              </div>
+            </div>
+          </div>
+          
+          <div class="case-study">
+            <div class="case-title">
+              📋 事例紹介（一部）
+            </div>
+            <div class="case-content">
+              <strong>次世代観測機器の性能検証</strong><br>
+              依頼元: 精密機器メーカー<br>
+              期間: 2023年6月〜2024年3月<br>
+              内容: 深海用観測装置の実地テスト。水深<span class="redacted">████</span>mでの
+              動作確認、<span class="glitch redacted">異常環境下での耐久性</span>、
+              データ転送の信頼性などを評価。
+              <span class="glitch">予期せぬ現象の記録にも成功</span>。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- サービス3: 資料整理・分析 -->
+    <section class="section">
+      <div class="container">
+        <div class="service-detail">
+          <div class="service-header">
+            <div class="service-icon">📚</div>
+            <div>
+              <div class="service-title">資料整理・分析サービス</div>
+              <div class="service-subtitle">Documentation & Analysis Services</div>
+            </div>
+          </div>
+          
+          <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.8;">
+            大量の研究資料、観測データ、<span class="glitch">機密文書</span>などを体系的に整理し、
+            分析可能な形式に変換します。長期保管を前提としたアーカイブ化、
+            データベース構築にも対応します。
+          </p>
+          
+          <div class="service-features">
+            <div class="feature-item">
+              <div class="feature-title">デジタル化</div>
+              <div class="feature-desc">
+                紙媒体の資料を高精度でスキャン、OCR処理により
+                検索可能な電子データに変換。メタデータの付与により、
+                効率的な検索・分類を実現します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">データクレンジング</div>
+              <div class="feature-desc">
+                不完全なデータの補完、異常値の検出と処理、
+                フォーマットの統一など、データの品質向上を図ります。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">機密管理</div>
+              <div class="feature-desc">
+                アクセス権限の設定、暗号化、
+                <span class="glitch">特殊な保管方法</span>により、
+                機密性の高い情報を厳重に管理します。
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-title">傾向分析</div>
+              <div class="feature-desc">
+                蓄積されたデータから、時系列的な変化、
+                相関関係、<span class="glitch redacted">異常パターン</span>などを抽出します。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- サービス4: 特殊対応サービス -->
+    <section class="section alt">
+      <div class="container">
+        <div class="service-detail">
+          <div class="service-header">
+            <div class="service-icon glitch">⚠️</div>
+            <div>
+              <div class="service-title glitch">特殊対応サービス</div>
+              <div class="service-subtitle glitch">Special Response Services</div>
+            </div>
+          </div>
+          
+          <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.8;" class="glitch">
+            通常の研究支援の範疇を超える、<span class="redacted">特殊な事象</span>への対応を専門とするサービスです。
+            詳細は守秘義務により公開できませんが、
+            <span class="redacted">緊急性の高い事案</span>に対して、24時間体制で対応可能です。
+          </p>
+          
+          <div class="warning-box">
+            <h4>⚠️ 重要な注意事項</h4>
+            <p>
+              本サービスの利用には、事前の適性審査と機密保持契約の締結が必須となります。
+              また、サービス内容の詳細、料金、実績などは一切公開されません。
+              <br><br>
+              <span style="font-size: 0.9rem;">
+                ご興味をお持ちの方は、まず通常のお問い合わせフォームより、
+                件名に「<span class="glitch">特殊案件に関する相談</span>」と記載の上、ご連絡ください。
+                担当者より折り返しご連絡させていただきます。
+              </span>
+            </p>
+          </div>
+          
+          <div class="service-features">
+            <div class="feature-item glitch">
+              <div class="feature-title">緊急展開</div>
+              <div class="feature-desc">
+                <span class="redacted">異常事象</span>の発生から最短2時間で現場到着。
+                専門チームによる<span class="redacted">初動対応</span>を実施します。
+              </div>
+            </div>
+            
+            <div class="feature-item glitch">
+              <div class="feature-title">継続監視</div>
+              <div class="feature-desc">
+                <span class="redacted">高リスク地点</span>の24時間365日監視。
+                <span class="redacted">前兆</span>の検知と早期警告を提供します。
+              </div>
+            </div>
+            
+            <div class="feature-item glitch">
+              <div class="feature-title">後処理支援</div>
+              <div class="feature-desc">
+                <span class="redacted">事象の収束後</span>、
+                <span class="redacted">痕跡の処理</span>、
+                関係者への<span class="redacted">説明</span>、
+                <span class="redacted">記録の管理</span>などを実施します。
+              </div>
+            </div>
+            
+            <div class="feature-item glitch">
+              <div class="feature-title">人的ケア</div>
+              <div class="feature-desc">
+                <span class="redacted">影響を受けた人員</span>への
+                <span class="redacted">心理的ケア</span>、
+                <span class="redacted">記憶の整理</span>、
+                復帰支援を提供します。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 料金について -->
+    <section class="section">
+      <div class="container">
+        <h3>料金について</h3>
+        <p style="color: #9ca3af; margin-bottom: 2rem;">
+          当社のサービス料金は、プロジェクトの規模、期間、難易度により個別に設定されます。
+          以下は標準的な目安です。詳細なお見積もりは、お問い合わせください。
+        </p>
+        
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>サービス種別</th>
+              <th>標準期間</th>
+              <th>料金目安</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>研究支援（基本）</td>
+              <td>3ヶ月〜</td>
+              <td>月額 50万円〜</td>
+            </tr>
+            <tr>
+              <td>技術検証</td>
+              <td>1ヶ月〜</td>
+              <td>案件ごとに見積もり</td>
+            </tr>
+            <tr>
+              <td>資料整理・分析</td>
+              <td>2週間〜</td>
+              <td>データ量により変動</td>
+            </tr>
+            <tr>
+              <td>長期観測プロジェクト</td>
+              <td>1年〜</td>
+              <td>年額 500万円〜</td>
+            </tr>
+            <tr class="glitch">
+              <td>特殊対応サービス</td>
+              <td><span class="redacted">状況により変動</span></td>
+              <td><span class="redacted">████████</span></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 1rem;">
+          ※ 上記料金には、人件費、設備利用費、交通費などが含まれます<br>
+          ※ 長期契約の場合、割引が適用される場合があります<br>
+          <span class="glitch">※ 特殊対応サービスの料金体系は別途ご説明いたします</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- お問い合わせCTA -->
+    <section class="section alt">
+      <div class="container" style="text-align: center;">
+        <h3>サービスに関するお問い合わせ</h3>
+        <p style="margin-bottom: 2rem; color: #9ca3af;">
+          当社のサービスに関するご質問、お見積もり依頼は、<br>
+          以下のフォームよりお気軽にお問い合わせください。
+        </p>
+        <a class="button" href="contact.html">お問い合わせフォームへ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Easter egg: redactedテキストを3回クリック
+    document.querySelectorAll('.redacted').forEach(el => {
+      let clickCount = 0;
+      el.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount === 3) {
+          el.style.background = 'transparent';
+          el.style.color = '#ff4d4d';
+          el.style.animation = 'glitch 0.5s';
+        }
+      });
+    });
+    
+    // Console message
+    console.log('%c警告', 'color: #ff4d4d; font-size: 20px; font-weight: bold;');
+    console.log('%c本ページには機密情報が含まれています', 'color: #ff4d4d; font-size: 14px;');
+    console.log('%cあなたのアクセスは記録されました', 'color: #9ca3af; font-size: 12px;');
+    console.log('%cIP: ' + '203.0.113.' + Math.floor(Math.random() * 255), 'color: #6b7280; font-size: 10px;');
+  </script>
+</body>
+</html>

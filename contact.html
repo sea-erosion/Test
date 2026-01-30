@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社へのお問い合わせはこちらから。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-form {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      color: #00ffff;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    
+    .form-required {
+      color: #ff4d4d;
+      margin-left: 0.3rem;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: #e5e7eb;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-hint {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.3rem;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: #00ffff;
+      color: #0a0e1a;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background: #00cccc;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    
+    .contact-info {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 4px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-icon {
+      font-size: 1.5rem;
+      color: #00ffff;
+    }
+    
+    .info-content {
+      flex: 1;
+    }
+    
+    .info-label {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    
+    .info-text {
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    
+    .hidden-form {
+      display: none;
+      background: rgba(255, 77, 77, 0.1);
+      border: 2px solid #ff4d4d;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      border-radius: 4px;
+      animation: slideDown 0.5s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+    
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+      92% { opacity: 0.8; transform: translateX(-2px); }
+      94% { opacity: 1; transform: translateX(2px); }
+      96% { opacity: 0.8; transform: translateX(-1px); }
+      98% { opacity: 1; transform: translateX(1px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>お問い合わせ</h2>
+        <p class="lead">お気軽にご連絡ください</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-container">
+        <div class="contact-form">
+          <h3 style="color: #00ffff; margin-bottom: 1.5rem;">お問い合わせフォーム</h3>
+          
+          <form id="contactForm">
+            <div class="form-group">
+              <label class="form-label">
+                お問い合わせ種別<span class="form-required">*</span>
+              </label>
+              <select class="form-select" id="inquiryType" required>
+                <option value="">選択してください</option>
+                <option value="service">サービスに関するお問い合わせ</option>
+                <option value="estimate">お見積もり依頼</option>
+                <option value="recruitment">採用に関するお問い合わせ</option>
+                <option value="other">その他</option>
+                <option value="special" class="glitch">特殊案件に関する相談</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                組織名・団体名<span class="form-required">*</span>
+              </label>
+              <input type="text" class="form-input" id="organization" required placeholder="例: ○○大学 海洋研究所">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                お名前<span class="form-required">*</span>
+              </label>
+              <input type="text" class="form-input" id="name" required placeholder="山田 太郎">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                メールアドレス<span class="form-required">*</span>
+              </label>
+              <input type="email" class="form-input" id="email" required placeholder="example@example.com">
+              <div class="form-hint">※ ご返信は通常2営業日以内に行います</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                電話番号
+              </label>
+              <input type="tel" class="form-input" id="phone" placeholder="03-1234-5678">
+              <div class="form-hint">※ 緊急の場合にご連絡させていただくことがあります</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                お問い合わせ内容<span class="form-required">*</span>
+              </label>
+              <textarea class="form-textarea" id="message" required placeholder="具体的なご質問・ご要望をご記入ください"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #9ca3af;">
+                <input type="checkbox" id="privacy" required style="width: auto;">
+                <span>プライバシーポリシーに同意する<span class="form-required">*</span></span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">送信する</button>
+          </form>
+        </div>
+
+        <!-- Hidden Special Form -->
+        <div id="specialForm" class="hidden-form">
+          <h3 style="color: #ff4d4d; margin-bottom: 1rem;">
+            ⚠️ 特殊案件専用フォーム
+          </h3>
+          <p style="color: #fca5a5; margin-bottom: 1.5rem; line-height: 1.6;">
+            このフォームは機密性の高い案件専用です。<br>
+            <span style="font-size: 0.9rem;">
+              あなたのアクセスは記録されており、不適切な利用は即座に検知されます。
+            </span>
+          </p>
+          
+          <form id="specialInquiryForm">
+            <div class="form-group">
+              <label class="form-label" style="color: #ff4d4d;">
+                認証コード<span class="form-required">*</span>
+              </label>
+              <input type="text" class="form-input" id="authCode" required placeholder="海蝕員IDまたは認証コードを入力">
+              <div class="form-hint" style="color: #fca5a5;">
+                ※ 認証コードをお持ちでない方は、通常フォームをご利用ください
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="color: #ff4d4d;">
+                事象分類<span class="form-required">*</span>
+              </label>
+              <select class="form-select" id="incidentType" required>
+                <option value="">選択してください</option>
+                <option value="observation">異常観測データ</option>
+                <option value="disappearance">人員・物資の消失</option>
+                <option value="contamination">精神汚染の疑い</option>
+                <option value="boundary">境界の発見</option>
+                <option value="emergency">緊急事態</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="color: #ff4d4d;">
+                座標情報
+              </label>
+              <input type="text" class="form-input" id="coordinates" placeholder="北緯35.XXXX, 東経139.XXXX">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="color: #ff4d4d;">
+                詳細報告<span class="form-required">*</span>
+              </label>
+              <textarea class="form-textarea" id="specialMessage" required placeholder="可能な限り詳細に状況を記述してください"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" style="background: #ff4d4d; color: white;">
+              緊急送信
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3 style="color: #00ffff; margin-bottom: 1.5rem;">お問い合わせ先</h3>
+          
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+              <div class="info-label">本社所在地</div>
+              <div class="info-text">
+                〒108-0023<br>
+                東京都港区芝浦3-15-12<br>
+                東亜先端研究ビル 5F
+              </div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <div class="info-label">電話番号</div>
+              <div class="info-text">
+                03-5476-XXXX<br>
+                <span style="font-size: 0.9rem;">（受付時間: 平日 9:00-18:00）</span><br>
+                <span style="font-size: 0.9rem;" class="glitch">緊急ホットライン: 03-5476-XXXX（24時間対応）</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-content">
+              <div class="info-label">メールアドレス</div>
+              <div class="info-text">
+                一般お問い合わせ: info@toa-research.co.jp<br>
+                <span class="glitch">特殊案件: emergency@toa-research.co.jp</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-content">
+              <div class="info-label">営業時間</div>
+              <div class="info-text">
+                平日 9:00-18:00（土日祝日休み）<br>
+                <span style="font-size: 0.9rem;" class="glitch">※ 緊急事態発生時は24時間対応</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Privacy Note -->
+        <div class="card" style="margin-top: 2rem;">
+          <h4 style="color: #00ffff; margin-bottom: 1rem;">個人情報の取り扱いについて</h4>
+          <p style="color: #9ca3af; line-height: 1.8; font-size: 0.9rem;">
+            お問い合わせフォームよりお預かりした個人情報は、お問い合わせへの回答、
+            サービスのご案内のみに使用し、第三者への提供は一切行いません。
+            <span class="glitch">ただし、機密保持の観点から、必要に応じて情報の一部を編集・削除する場合があります。</span>
+            詳しくは<a href="privacy.html" style="color: #00ffff;">プライバシーポリシー</a>をご確認ください。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 通常フォームの送信処理
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const inquiryType = document.getElementById('inquiryType').value;
+      
+      if (inquiryType === 'special') {
+        // 特殊案件フォームを表示
+        document.getElementById('specialForm').style.display = 'block';
+        document.getElementById('specialForm').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      
+      // 通常の送信処理（実際には動作しない）
+      alert('お問い合わせを受け付けました。\n2営業日以内にご返信いたします。');
+      this.reset();
+    });
+
+    // 特殊フォームの送信処理
+    document.getElementById('specialInquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const authCode = document.getElementById('authCode').value;
+      
+      // イースターエッグ: 特定のコードで内部ポータルへ
+      if (authCode.toLowerCase() === 'kaishoku' || 
+          authCode.toLowerCase() === '海蝕' || 
+          authCode.toLowerCase() === 'boundary') {
+        alert('認証成功\nリダイレクトします...');
+        setTimeout(() => {
+          window.location.href = '/internal/login.html';
+        }, 1000);
+        return;
+      }
+      
+      // それ以外の場合
+      alert('⚠️ 警告\n\n無効な認証コードです。\nこの試行は記録されました。\n\n適切な認証情報をお持ちでない場合は、\n通常のお問い合わせフォームをご利用ください。');
+    });
+
+    // イースターエッグ: ロゴを5回クリック
+    let logoClickCount = 0;
+    document.querySelector('.logo').addEventListener('click', function() {
+      logoClickCount++;
+      if (logoClickCount === 5) {
+        console.log('%c緊急アクセスコード', 'color: #00ffff; font-size: 16px; font-weight: bold;');
+        console.log('%c認証コード: "boundary" または "kaishoku"', 'color: #00ffff; font-size: 14px;');
+        console.log('%c特殊案件フォームで使用できます', 'color: #9ca3af; font-size: 12px;');
+        logoClickCount = 0;
+      }
+    });
+
+    // Console message
+    console.log('%cお問い合わせありがとうございます', 'color: #00ffff; font-size: 14px;');
+    console.log('%cもし特殊な案件でお困りの場合は...', 'color: #9ca3af; font-size: 12px;');
+    console.log('%c[ヒント: 特殊案件に関する相談を選択してみてください]', 'color: #6b7280; font-size: 10px;');
+  </script>
+</body>
+</html>

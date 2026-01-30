@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究姿勢 | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社の研究に対する姿勢、倫理規範、品質管理についてご紹介します。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .philosophy-card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+      position: relative;
+    }
+    
+    .philosophy-number {
+      position: absolute;
+      top: -1rem;
+      left: 2rem;
+      background: #0a0e1a;
+      padding: 0.5rem 1rem;
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      color: #00ffff;
+      font-family: 'DotGothic16', monospace;
+      font-weight: bold;
+    }
+    
+    .philosophy-title {
+      color: #00ffff;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    
+    .philosophy-content {
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+    
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .ethics-item {
+      background: rgba(0, 255, 255, 0.05);
+      border-left: 4px solid #00ffff;
+      padding: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .ethics-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .ethics-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+    }
+    
+    .ethics-desc {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .warning-section {
+      background: rgba(255, 77, 77, 0.05);
+      border: 2px solid #ff4d4d;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+    
+    .warning-title {
+      color: #ff4d4d;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .warning-content {
+      color: #fca5a5;
+      line-height: 1.8;
+    }
+    
+    .quote-box {
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 4px solid #00ffff;
+      padding: 2rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #9ca3af;
+      position: relative;
+    }
+    
+    .quote-box::before {
+      content: '"';
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      font-size: 4rem;
+      color: rgba(0, 255, 255, 0.3);
+      font-family: serif;
+    }
+    
+    .quote-author {
+      text-align: right;
+      margin-top: 1rem;
+      color: #00ffff;
+      font-size: 0.9rem;
+      font-style: normal;
+    }
+    
+    .process-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .process-step {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 4px;
+      position: relative;
+    }
+    
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #00ffff;
+      font-size: 1.5rem;
+    }
+    
+    .process-step:last-child::after {
+      display: none;
+    }
+    
+    .process-number {
+      background: #00ffff;
+      color: #0a0e1a;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .process-title {
+      color: #00ffff;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .process-desc {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+    
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+      92% { opacity: 0.8; transform: translateX(-2px); }
+      94% { opacity: 1; transform: translateX(2px); }
+      96% { opacity: 0.8; transform: translateX(-1px); }
+      98% { opacity: 1; transform: translateX(1px); }
+    }
+    
+    .redacted {
+      background: #000;
+      color: #000;
+      padding: 0 0.3rem;
+      user-select: none;
+      cursor: help;
+    }
+    
+    @media (max-width: 768px) {
+      .process-flow {
+        flex-direction: column;
+      }
+      
+      .process-step::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>研究姿勢</h2>
+        <p class="lead">真実を追求し、中立性を貫き、責任を全うする</p>
+      </div>
+    </section>
+
+    <!-- 基本理念 -->
+    <section class="section">
+      <div class="container">
+        <h3>当社の基本理念</h3>
+        <p style="color: #9ca3af; margin-bottom: 3rem; line-height: 1.8;">
+          東亜先端研究株式会社は、科学的真実の探求を最優先とし、
+          いかなる外部圧力にも屈することなく、客観的で信頼性の高い研究支援を提供します。
+          <span class="glitch">私たちは、時として困難な真実に直面しますが、それから目を背けることはありません。</span>
+        </p>
+
+        <div class="philosophy-card">
+          <div class="philosophy-number">01</div>
+          <div class="philosophy-title">中立性の堅持</div>
+          <div class="philosophy-content">
+            当社は、特定の政治的立場、商業的利害、個人的信条に左右されることなく、
+            純粋に科学的根拠に基づいた判断を行います。
+            クライアントの期待に応えることは重要ですが、
+            それが真実を歪めることを意味するのであれば、私たちは明確に拒否します。
+            <br><br>
+            <span class="glitch">
+            過去には、政府機関からの圧力により調査を中止するよう要請されたこともありますが、
+            当社は真実の追求を優先し、要請を断っています。
+            </span>
+          </div>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-number">02</div>
+          <div class="philosophy-title">機密保持の徹底</div>
+          <div class="philosophy-content">
+            研究活動において得られた情報、特に<span class="glitch">センシティブな性質を持つデータ</span>は、
+            厳重に管理されます。全ての従業員は入社時に包括的な機密保持契約を締結し、
+            退職後も無期限にその義務が継続します。
+            <br><br>
+            当社が取り扱う情報の中には、
+            <span class="glitch redacted">公開された場合に社会的パニックを引き起こす可能性のあるもの</span>も含まれます。
+            そのため、情報の取り扱いには最大限の注意を払い、
+            <span class="glitch">必要に応じて記録の改変や削除</span>も実施します。
+          </div>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philosophy-number">03</div>
+          <div class="philosophy-title">継続的な技術革新</div>
+          <div class="philosophy-content">
+            研究支援の質を維持・向上させるため、最新の技術動向を常に追跡し、
+            積極的に新技術を導入しています。
+            特に<span class="glitch">異常現象の検知・分析技術</span>については、
+            世界最先端のシステムを独自に開発・運用しています。
+            <br><br>
+            当社の技術開発部門は、
+            <span class="glitch redacted">通常の科学では説明できない現象</span>に対処するため、
+            従来の枠組みにとらわれない革新的なアプローチを追求しています。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 倫理規範 -->
+    <section class="section alt">
+      <div class="container">
+        <h3>倫理規範</h3>
+        <p style="color: #9ca3af; margin-bottom: 2rem;">
+          当社の全従業員は、以下の倫理規範を遵守することを義務付けられています。
+        </p>
+
+        <div class="ethics-grid">
+          <div class="ethics-item">
+            <div class="ethics-icon">🔒</div>
+            <div class="ethics-title">情報の守秘</div>
+            <div class="ethics-desc">
+              業務上知り得た全ての情報は機密として扱い、
+              承認なく外部に漏らすことを禁じます。
+              <span class="glitch">違反者には厳格な処分が下されます。</span>
+            </div>
+          </div>
+
+          <div class="ethics-item">
+            <div class="ethics-icon">⚖️</div>
+            <div class="ethics-title">公平性の維持</div>
+            <div class="ethics-desc">
+              全てのステークホルダーに対して公平に接し、
+              特定の個人や組織を優遇することはありません。
+              判断は常に科学的根拠に基づきます。
+            </div>
+          </div>
+
+          <div class="ethics-item">
+            <div class="ethics-icon">🎓</div>
+            <div class="ethics-title">専門性の向上</div>
+            <div class="ethics-desc">
+              継続的な学習と技能向上に努め、
+              専門家としての責任を果たします。
+              <span class="glitch">特殊な訓練プログラムも用意されています。</span>
+            </div>
+          </div>
+
+          <div class="ethics-item">
+            <div class="ethics-icon">🤝</div>
+            <div class="ethics-title">誠実な対応</div>
+            <div class="ethics-desc">
+              クライアントに対しては常に誠実に対応し、
+              約束を守り、期待に応えるよう最善を尽くします。
+            </div>
+          </div>
+
+          <div class="ethics-item">
+            <div class="ethics-icon">🛡️</div>
+            <div class="ethics-title glitch">安全の確保</div>
+            <div class="ethics-desc glitch">
+              <span class="redacted">危険を伴う業務</span>においては、
+              従業員の安全を最優先とします。
+              <span class="redacted">必要な防護措置</span>を徹底します。
+            </div>
+          </div>
+
+          <div class="ethics-item">
+            <div class="ethics-icon glitch">⚠️</div>
+            <div class="ethics-title glitch">異常への対処</div>
+            <div class="ethics-desc glitch">
+              <span class="redacted">通常とは異なる事象</span>に遭遇した場合、
+              直ちに上司に報告し、適切な対応を取ります。
+              <span class="redacted">個人での判断は禁止</span>されています。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 品質管理プロセス -->
+    <section class="section">
+      <div class="container">
+        <h3>品質管理プロセス</h3>
+        <p style="color: #9ca3af; margin-bottom: 2rem;">
+          当社は、研究支援の品質を保証するため、以下のプロセスを確立しています。
+        </p>
+
+        <div class="process-flow">
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <div class="process-title">計画</div>
+            <div class="process-desc">詳細な実施計画の策定</div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <div class="process-title">実施</div>
+            <div class="process-desc">計画に基づいた作業</div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <div class="process-title">検証</div>
+            <div class="process-desc">結果の妥当性確認</div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">4</div>
+            <div class="process-title">報告</div>
+            <div class="process-desc">クライアントへの報告</div>
+          </div>
+
+          <div class="process-step glitch">
+            <div class="process-number">5</div>
+            <div class="process-title">後処理</div>
+            <div class="process-desc glitch"><span class="redacted">記録の管理</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 3rem;">
+          <h4 style="color: #00ffff; margin-bottom: 1rem;">品質保証への取り組み</h4>
+          <ul style="line-height: 2; color: #9ca3af;">
+            <li>ISO 9001（品質マネジメントシステム）認証取得</li>
+            <li>定期的な内部監査の実施</li>
+            <li>外部専門家によるレビュー</li>
+            <li>継続的な改善活動</li>
+            <li class="glitch">特殊事案に関する独自の評価基準</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 引用 -->
+    <section class="section alt">
+      <div class="container">
+        <div class="quote-box">
+          真実は時として受け入れがたいものである。<br>
+          しかし、それから目を背けることは、より大きな危険を招く。<br>
+          私たちは、どんなに困難であっても、真実と向き合い続ける。<br>
+          <span class="glitch">なぜなら、知らないことこそが最大の脅威だからだ。</span>
+          <div class="quote-author">― 黒田 誠一郎（代表取締役社長）</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 警告セクション -->
+    <section class="section">
+      <div class="container">
+        <div class="warning-section">
+          <div class="warning-title">
+            ⚠️ 重要な注意事項
+          </div>
+          <div class="warning-content">
+            <p style="margin-bottom: 1rem;">
+              当社が取り扱う研究分野の中には、一般的な科学の範疇を超えるものも含まれます。
+              これらのプロジェクトに関わる従業員は、
+              <span class="glitch">精神的・身体的な影響</span>を受ける可能性があります。
+            </p>
+            <p style="margin-bottom: 1rem;">
+              そのため、当社では以下の対策を講じています:
+            </p>
+            <ul style="line-height: 2; margin-left: 1.5rem;">
+              <li>定期的な健康診断（<span class="glitch redacted">特殊な項目を含む</span>）</li>
+              <li>専門カウンセラーによる心理ケア</li>
+              <li class="glitch"><span class="redacted">異常な症状が見られた場合の即座の隔離</span></li>
+              <li class="glitch"><span class="redacted">必要に応じた記憶の処理</span></li>
+            </ul>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+              これらの措置は、従業員の安全と、
+              <span class="glitch">プロジェクトの機密性を維持する</span>ために不可欠です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section alt">
+      <div class="container" style="text-align: center;">
+        <h3>私たちと共に働きませんか</h3>
+        <p style="margin-bottom: 2rem; color: #9ca3af;">
+          当社の理念に共感し、<span class="glitch">真実の追求に情熱を持つ</span>方からのご応募をお待ちしています。<br>
+          <span style="font-size: 0.9rem;">（ただし、適性審査と<span class="glitch redacted">特殊な訓練</span>があることをご了承ください）</span>
+        </p>
+        <a class="button" href="contact.html">採用に関するお問い合わせ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Console warning
+    console.log('%c警告: 不正アクセス検知', 'color: #ff4d4d; font-size: 16px; font-weight: bold;');
+    console.log('%c当ページの閲覧は記録されています', 'color: #9ca3af; font-size: 12px;');
+    console.log('%c適切な認証手続きを経ずにアクセスした場合、法的措置の対象となる可能性があります', 'color: #6b7280; font-size: 10px;');
+    
+    // Hidden audio trigger
+    let secretClickCount = 0;
+    document.querySelector('.warning-section').addEventListener('click', () => {
+      secretClickCount++;
+      if (secretClickCount === 5) {
+        console.log('%c緊急通報: 海蝕機関本部', 'color: #ff4d4d; font-size: 14px;');
+        console.log('%c不審なアクセスを検知しました', 'color: #ff4d4d; font-size: 12px;');
+        console.log('%c対象IP: 203.0.113.' + Math.floor(Math.random() * 255), 'color: #9ca3af;');
+        console.log('%c収束部門を派遣します', 'color: #00ffff;');
+      }
+    });
+  </script>
+</body>
+</html>

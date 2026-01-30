@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業情報 | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社の企業情報、沿革、組織構成をご紹介します。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .timeline {
+      max-width: 800px;
+      margin: 3rem auto;
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+    }
+    
+    .timeline-item {
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.5rem;
+      top: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+      background: #00ffff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ffff;
+    }
+    
+    .timeline-year {
+      font-family: 'DotGothic16', monospace;
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content {
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+    
+    .org-chart {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .org-card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .org-card:hover {
+      border-color: #00ffff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    
+    .org-title {
+      color: #00ffff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-family: 'DotGothic16', monospace;
+    }
+    
+    .org-desc {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2rem;
+      text-align: center;
+      border-radius: 4px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      color: #00ffff;
+      font-weight: bold;
+      font-family: 'DotGothic16', monospace;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+    
+    .hidden-message {
+      opacity: 0;
+      font-size: 0.1px;
+      color: transparent;
+      user-select: none;
+    }
+    
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+    
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; }
+      92%, 94%, 96%, 98% { opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>企業情報</h2>
+        <p class="lead">信頼性と中立性を基盤とした研究支援パートナー</p>
+      </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="section">
+      <div class="container">
+        <h3>会社概要</h3>
+        <div class="card">
+          <table style="width: 100%; line-height: 2;">
+            <tr>
+              <td style="width: 30%; color: #9ca3af;">社名</td>
+              <td>東亜先端研究株式会社</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">英文社名</td>
+              <td>Toa Advanced Research Inc.</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">設立</td>
+              <td>1983年4月1日</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">資本金</td>
+              <td>3億円</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">代表者</td>
+              <td>代表取締役社長　黒田 誠一郎</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">従業員数</td>
+              <td>約120名（2026年1月現在）</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">本社所在地</td>
+              <td>東京都港区芝浦3-15-12<br>
+                  <span style="font-size: 0.85rem; color: #6b7280;">
+                    （最寄駅：JR田町駅、都営三田線・浅草線三田駅）
+                  </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">研究施設</td>
+              <td>横浜研究所（神奈川県横浜市）<br>
+                  沼津観測所（静岡県沼津市）<br>
+                  <span class="glitch">伊豆諸島観測拠点（非公開）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af;">主要取引先</td>
+              <td>
+                各種研究機関、大学、民間企業<br>
+                <span style="font-size: 0.85rem; color: #6b7280;">
+                  （守秘義務により詳細は非公開）
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 沿革 -->
+    <section class="section alt">
+      <div class="container">
+        <h3>沿革</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1983年</div>
+            <div class="timeline-content">
+              東京都港区に「東亜先端研究株式会社」設立。<br>
+              主に海洋学、地質学分野の研究支援からスタート。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">1987年</div>
+            <div class="timeline-content">
+              横浜研究所を開設。海洋観測機器の開発・検証事業を開始。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">1992年</div>
+            <div class="timeline-content">
+              政府系研究機関との協業を開始。<br>
+              <span style="color: #6b7280; font-size: 0.9rem;">
+                特定の海洋現象に関する長期観測プロジェクトに参画。
+              </span>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">1998年</div>
+            <div class="timeline-content">
+              沼津観測所を設置。駿河湾における継続的な海洋調査を開始。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2003年</div>
+            <div class="timeline-content">
+              組織体制を大幅に改編。<br>
+              <span class="glitch" style="color: #6b7280; font-size: 0.9rem;">
+                新設された「特殊事象対応部門」が業務の中核を担うようになる。
+              </span>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2008年</div>
+            <div class="timeline-content">
+              国内複数箇所に観測拠点を設置。24時間体制の監視システムを構築。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2015年</div>
+            <div class="timeline-content">
+              最新の観測・分析技術を導入。AI支援システムによる予測モデルを開発。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2020年</div>
+            <div class="timeline-content">
+              <span class="glitch">
+                複数の「特異事象」への対応実績により、特定分野において不可欠な存在として認識される。
+              </span>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-year">2024年</div>
+            <div class="timeline-content">
+              事業規模を拡大。新たな人材を積極的に採用中。<br>
+              <span style="color: #6b7280; font-size: 0.9rem;">
+                特に、海洋学、物理学、心理学のバックグラウンドを持つ人材を求めています。
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 組織構成 -->
+    <section class="section">
+      <div class="container">
+        <h3>組織構成</h3>
+        <p style="color: #9ca3af; margin-bottom: 2rem;">
+          当社は、専門性の高い複数の部門により構成されています。<br>
+          各部門が密接に連携することで、高品質なサービスを提供しています。
+        </p>
+        
+        <div class="org-chart">
+          <div class="org-card">
+            <div class="org-title">経営管理部門</div>
+            <div class="org-desc">
+              企業全体の戦略立案、財務管理、人事、総務を担当。<br>
+              社内の円滑な運営を支えています。
+            </div>
+          </div>
+          
+          <div class="org-card">
+            <div class="org-title">研究支援部門</div>
+            <div class="org-desc">
+              クライアントの研究活動を多角的にサポート。<br>
+              データ収集、分析、レポート作成などを実施。
+            </div>
+          </div>
+          
+          <div class="org-card">
+            <div class="org-title">技術開発部門</div>
+            <div class="org-desc">
+              観測機器の開発・改良、新技術の検証を実施。<br>
+              独自の分析手法も研究しています。
+            </div>
+          </div>
+          
+          <div class="org-card">
+            <div class="org-title">対外連携部門</div>
+            <div class="org-desc">
+              政府機関、研究機関、企業との窓口。<br>
+              プロジェクトの調整、広報活動を担当。
+            </div>
+          </div>
+          
+          <div class="org-card">
+            <div class="org-title">観測・監視部門</div>
+            <div class="org-desc">
+              全国の観測拠点を統括。<br>
+              24時間365日、継続的なモニタリングを実施。
+            </div>
+          </div>
+          
+          <div class="org-card">
+            <div class="org-title glitch">特殊事象対応部門</div>
+            <div class="org-desc">
+              <span class="glitch">
+                通常とは異なる事象への対応を専門とする部門。<br>
+                詳細は機密事項のため非公開。
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <p style="color: #6b7280; font-size: 0.9rem; margin-top: 2rem; text-align: center;">
+          ※ 組織構成は業務の性質上、一部簡略化して掲載しています
+        </p>
+      </div>
+    </section>
+
+    <!-- 事業実績 -->
+    <section class="section alt">
+      <div class="container">
+        <h3>事業実績（数値で見る当社）</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">年以上の運営実績</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">120</div>
+            <div class="stat-label">従業員数（2026年）</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">15</div>
+            <div class="stat-label">国内観測拠点数</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">監視体制</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number glitch">███</div>
+            <div class="stat-label glitch">年間対応件数</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">クライアント満足度</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 行動規範 -->
+    <section class="section">
+      <div class="container">
+        <h3>企業理念と行動規範</h3>
+        <div class="cards">
+          <div class="card">
+            <h4>中立性の維持</h4>
+            <p>
+              いかなる外部圧力にも屈することなく、科学的根拠に基づいた客観的な評価を提供します。
+              当社の存在意義は、真実の追求にあります。
+            </p>
+          </div>
+          
+          <div class="card">
+            <h4>守秘義務の徹底</h4>
+            <p>
+              クライアントの機密情報、研究データは厳重に管理されます。
+              従業員は入社時に包括的な守秘義務契約を締結し、退職後も義務が継続します。
+            </p>
+          </div>
+          
+          <div class="card">
+            <h4>社会的責任</h4>
+            <p>
+              <span class="glitch">
+              当社が取り扱う情報の中には、公開された場合に社会的混乱を招く可能性のあるものも含まれます。
+              </span>
+              そのため、情報の取り扱いには細心の注意を払っています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 採用情報へのリンク -->
+    <section class="section alt">
+      <div class="container" style="text-align: center;">
+        <h3>採用情報</h3>
+        <p style="margin-bottom: 2rem; color: #9ca3af;">
+          当社では、高い専門性と倫理観を持った人材を求めています。<br>
+          特に海洋学、物理学、心理学、情報工学のバックグラウンドをお持ちの方、<br>
+          <span class="glitch">または「特異な経験」をお持ちの方からのご応募をお待ちしています。</span>
+        </p>
+        <a class="button" href="contact.html">採用に関するお問い合わせ</a>
+        
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #6b7280;">
+          ※ 採用プロセスには適性検査、<span class="glitch">特殊な面接</span>、身辺調査が含まれます
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Hidden messages -->
+  <div class="hidden-message">
+    <!-- 
+    社員ID: K-2024-0847
+    入社日: 2024-04-01
+    配属: 収束部門
+    最終勤務日: 2024-08-12
+    現状: 行方不明
+    -->
+  </div>
+  
+  <script>
+    // Easter egg: 会社概要テーブルを10回クリック
+    let clickCount = 0;
+    document.querySelector('table').addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 10) {
+        alert('何かがおかしい。\n従業員数が120名？\nでは、なぜ社内名簿には230名の名前があるのか？');
+        clickCount = 0;
+      }
+    });
+    
+    // Glitch効果の強化
+    setInterval(() => {
+      const glitchElements = document.querySelectorAll('.glitch');
+      glitchElements.forEach(el => {
+        if (Math.random() > 0.95) {
+          el.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+          setTimeout(() => {
+            el.style.transform = 'translateX(0)';
+          }, 100);
+        }
+      });
+    }, 2000);
+  </script>
+</body>
+</html>

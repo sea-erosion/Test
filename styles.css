@@ -1,0 +1,118 @@
+/* ===== Base Reset ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,Arial,sans-serif;color:#111827;line-height:1.7;background:#fff}
+a{color:inherit}
+
+/* ===== Layout ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.header{border-bottom:1px solid #e5e7eb;background:#fff}
+.header .container{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.logo{font-size:18px;font-weight:600;letter-spacing:.02em}
+.nav{display:flex;gap:20px;flex-wrap:wrap}
+.nav a{font-size:14px;text-decoration:none;border-bottom:1px solid transparent}
+.nav a:hover{border-color:#9ca3af}
+
+.footer{border-top:1px solid #e5e7eb;margin-top:60px}
+.footer .container{padding:20px}
+.footer p{font-size:12px;color:#6b7280}
+
+/* ===== Sections ===== */
+.section{padding:56px 0}
+.section.alt{background:#f9fafb}
+.hero{padding:72px 0;background:#f3f4f6}
+.hero h2{font-size:32px;margin-bottom:12px}
+.hero .lead{font-size:16px;color:#374151;max-width:760px}
+
+h3{font-size:22px;margin-bottom:12px}
+h4{font-size:18px;margin-bottom:8px}
+p{font-size:14px;color:#374151}
+
+/* ===== Cards ===== */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
+.card{border:1px solid #e5e7eb;background:#fff;padding:20px}
+
+/* ===== Links / Buttons ===== */
+.link{display:inline-block;margin-top:12px;font-size:14px;text-decoration:none;border-bottom:1px solid #9ca3af}
+.link:hover{border-color:#111827}
+.button{display:inline-block;margin-top:16px;padding:10px 24px;border:1px solid #111827;text-decoration:none;font-size:14px;border-radius:3px}
+.button:hover{background:#f3f4f6}
+
+/* ===== Tables ===== */
+.company-table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{border:1px solid #e5e7eb;padding:12px;font-size:14px;text-align:left}
+.company-table th{width:28%;background:#f9fafb}
+
+/* ===== Forms ===== */
+.contact-form{margin-top:32px;max-width:640px}
+.form-group{margin-bottom:20px}
+label{display:block;font-size:14px;margin-bottom:6px;color:#374151}
+input,textarea{width:100%;padding:10px 12px;border:1px solid #d1d5db;font-size:14px}
+button{padding:12px 28px;border:1px solid #374151;background:#fff;cursor:pointer;font-size:14px}
+button:hover{background:#f3f4f6}
+
+/* ===== Anomaly Overlay ===== */
+.anomaly-overlay{position:fixed;inset:0;background:rgba(255,255,255,.92);opacity:0;pointer-events:none;transition:opacity .2s ease}
+.anomaly-overlay.visible{opacity:1}
+.anomaly-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:"Courier New",monospace;letter-spacing:.12em;text-align:center}
+.anomaly-box .small{font-size:10px;color:#6b7280}
+
+/* ===== 404 ===== */
+.notfound{min-height:60vh;display:flex;align-items:center}
+.notfound .box{max-width:720px;margin:0 auto;padding:40px 24px;border:1px solid #e5e7eb;background:#fff}
+.notfound .links{margin-top:24px;display:flex;gap:16px;flex-wrap:wrap}
+
+/* ===== FAQ ===== */
+.faq {
+  margin-top: 60px;
+}
+
+.faq h3 {
+  margin-bottom: 24px;
+}
+
+.faq-item {
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 0;
+}
+
+.faq-item:first-child {
+  border-top: none;
+}
+
+.faq-item h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.faq-item p {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width: 768px){
+  .header .container{flex-direction:column;align-items:flex-start}
+  .nav{gap:12px}
+  .hero h2{font-size:26px}
+  .section{padding:40px 0}
+  .cards{grid-template-columns:1fr}
+  .company-table th{width:40%}
+}
+
+@media (max-width: 480px){
+  .container{padding:0 16px}
+  .logo{font-size:16px}
+  .nav a{font-size:13px}
+  h3{font-size:20px}
+  h4{font-size:16px}
+  p{font-size:13px}
+  .hero{padding:56px 0}
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ニュース・更新情報 | 東亜先端研究株式会社</title>
+  <meta name="description" content="東亜先端研究株式会社の最新ニュース、プレスリリース、研究成果をご紹介します。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .news-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .news-article {
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      padding: 2rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .news-article:hover {
+      border-color: #00ffff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .news-date {
+      color: #00ffff;
+      font-size: 0.9rem;
+      font-family: monospace;
+    }
+
+    .news-category {
+      padding: 0.3rem 0.8rem;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid #00ffff;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      color: #00ffff;
+    }
+
+    .news-category.urgent {
+      background: rgba(255, 77, 77, 0.1);
+      border-color: #ff4d4d;
+      color: #ff4d4d;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      color: #e5e7eb;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .news-excerpt {
+      color: #9ca3af;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 255, 255, 0.1);
+    }
+
+    .read-more {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .news-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .news-tag {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .redacted {
+      background: #000;
+      color: #000;
+      padding: 0 0.3rem;
+      user-select: none;
+      cursor: help;
+    }
+
+    .redacted:hover {
+      background: rgba(255, 77, 77, 0.3);
+      color: #ff4d4d;
+    }
+
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+      92% { opacity: 0.8; transform: translateX(-2px); }
+      94% { opacity: 1; transform: translateX(2px); }
+      96% { opacity: 0.8; transform: translateX(-1px); }
+      98% { opacity: 1; transform: translateX(1px); }
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: #9ca3af;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: #00ffff;
+      color: #00ffff;
+      background: rgba(0, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Toa Advanced Research Inc.</h1>
+      <nav class="nav">
+        <a href="index.html">ホーム</a>
+        <a href="company.html">企業情報</a>
+        <a href="services.html">事業内容</a>
+        <a href="research.html">研究姿勢</a>
+        <a href="news.html">ニュース</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>ニュース・更新情報</h2>
+        <p class="lead">最新の研究成果、活動報告をお届けします</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filterNews('all')">全て</button>
+          <button class="filter-btn" onclick="filterNews('press')">プレスリリース</button>
+          <button class="filter-btn" onclick="filterNews('research')">研究成果</button>
+          <button class="filter-btn" onclick="filterNews('notice')">お知らせ</button>
+          <button class="filter-btn" onclick="filterNews('incident')">事案報告</button>
+        </div>
+
+        <div class="news-grid">
+          <!-- Article 1 -->
+          <article class="news-article" data-category="press">
+            <div class="news-header">
+              <span class="news-date">2026.01.22</span>
+              <span class="news-category">プレスリリース</span>
+            </div>
+            <h3 class="news-title">新型観測システム「イカリ-VI」の実用化について</h3>
+            <p class="news-excerpt">
+              当社技術開発部門が開発を進めてきた新型観測システム「イカリ-VI」が、
+              2026年1月より実用化されました。従来比300%の観測精度向上を実現し、
+              <span class="glitch">より微細な空間歪曲の検知</span>が可能となりました。
+              本システムは全国15箇所の観測拠点に順次配備される予定です。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#技術開発</span>
+                <span class="news-tag">#観測システム</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-article" data-category="incident">
+            <div class="news-header">
+              <span class="news-date">2026.01.15</span>
+              <span class="news-category urgent">事案報告</span>
+            </div>
+            <h3 class="news-title glitch">駿河湾における異常潮位の観測について</h3>
+            <p class="news-excerpt">
+              2026年1月13日深夜、駿河湾の複数地点において通常とは異なる潮位変動が観測されました。
+              気象庁の公式データと<span class="redacted">約2メートルの乖離</span>が確認されており、
+              現在、当社の専門チームが<span class="glitch">詳細な調査</span>を実施中です。
+              周辺住民の方々には、当面の間、<span class="glitch redacted">夜間の海岸への接近</span>を
+              お控えいただくようお願いいたします。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#駿河湾</span>
+                <span class="news-tag">#異常観測</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="news-article" data-category="research">
+            <div class="news-header">
+              <span class="news-date">2026.01.08</span>
+              <span class="news-category">研究成果</span>
+            </div>
+            <h3 class="news-title">深海生物の異常行動に関する研究報告</h3>
+            <p class="news-excerpt">
+              国立海洋研究所との共同研究により、深海生物の行動パターンに
+              <span class="glitch">従来の理論では説明できない変化</span>が確認されました。
+              特に水深2000m以深において、通常とは異なる<span class="redacted">発光パターン</span>や
+              <span class="redacted">群行動</span>が観測されています。
+              詳細な分析結果は、来月の海洋学会で発表予定です。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#深海生物</span>
+                <span class="news-tag">#共同研究</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="news-article" data-category="notice">
+            <div class="news-header">
+              <span class="news-date">2025.12.28</span>
+              <span class="news-category">お知らせ</span>
+            </div>
+            <h3 class="news-title">年末年始の営業について</h3>
+            <p class="news-excerpt">
+              誠に勝手ながら、2025年12月29日〜2026年1月3日は休業とさせていただきます。
+              ただし、<span class="glitch">緊急事態発生時は24時間対応</span>いたします。
+              緊急連絡先: 03-XXXX-XXXX（専用ホットライン）
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#お知らせ</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="news-article" data-category="incident">
+            <div class="news-header">
+              <span class="news-date">2025.12.15</span>
+              <span class="news-category urgent glitch">緊急事案</span>
+            </div>
+            <h3 class="news-title glitch">伊豆諸島沖での通信途絶について（続報）</h3>
+            <p class="news-excerpt">
+              12月10日に発生した伊豆諸島沖の<span class="redacted">観測船との通信途絶</span>について、
+              12月14日に船舶を発見し、<span class="glitch">乗組員の無事を確認</span>いたしました。
+              詳細な状況については、<span class="redacted">調査中</span>です。
+              なお、乗組員からは<span class="glitch redacted">記憶の欠落</span>が報告されており、
+              現在、医療チームによる<span class="redacted">精密検査</span>を実施しています。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#緊急事案</span>
+                <span class="news-tag">#伊豆諸島</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="news-article" data-category="press">
+            <div class="news-header">
+              <span class="news-date">2025.11.30</span>
+              <span class="news-category">プレスリリース</span>
+            </div>
+            <h3 class="news-title">新規観測拠点の設置について</h3>
+            <p class="news-excerpt">
+              当社は、2026年3月までに国内3箇所に新たな観測拠点を設置いたします。
+              設置場所は、<span class="redacted">東北地方沿岸部</span>、
+              <span class="redacted">四国南部</span>、
+              <span class="redacted">九州西部</span>を予定しており、
+              これにより全国的な<span class="glitch">監視ネットワーク</span>が完成します。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#拠点拡大</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 7 -->
+          <article class="news-article" data-category="research">
+            <div class="news-header">
+              <span class="news-date">2025.11.12</span>
+              <span class="news-category">研究成果</span>
+            </div>
+            <h3 class="news-title">海洋音響の異常に関する研究論文が学術誌に掲載</h3>
+            <p class="news-excerpt">
+              当社研究チームが執筆した論文「<span class="glitch">境界領域における音響特性の変異</span>」が、
+              国際海洋学術誌に掲載されました。本研究では、
+              <span class="redacted">特定の海域</span>において観測される
+              <span class="glitch">既知の音源に該当しない低周波音</span>について分析しています。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#論文発表</span>
+                <span class="news-tag">#音響研究</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 8 -->
+          <article class="news-article" data-category="notice">
+            <div class="news-header">
+              <span class="news-date">2025.10.28</span>
+              <span class="news-category">お知らせ</span>
+            </div>
+            <h3 class="news-title">従業員の安全管理体制強化について</h3>
+            <p class="news-excerpt">
+              当社では、従業員の安全を最優先とし、<span class="glitch">特殊な業務環境</span>に対応した
+              包括的な安全管理体制を強化いたしました。
+              定期的な健康診断に加え、<span class="redacted">心理カウンセリング</span>、
+              <span class="glitch redacted">特殊環境適性検査</span>などを実施し、
+              従業員の心身の健康維持に努めてまいります。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#安全管理</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 9 -->
+          <article class="news-article" data-category="incident">
+            <div class="news-header">
+              <span class="news-date">2025.10.15</span>
+              <span class="news-category urgent glitch">事案報告</span>
+            </div>
+            <h3 class="news-title glitch">横浜港第3埠頭における立入制限について</h3>
+            <p class="news-excerpt">
+              横浜港第3埠頭において、<span class="redacted">安全上の理由</span>により
+              一部エリアへの立入を制限させていただいております。
+              当該エリアでは現在、<span class="glitch">継続的な観測活動</span>を実施中です。
+              制限解除の時期については、<span class="redacted">状況を見て判断</span>いたします。
+              ご理解とご協力をお願い申し上げます。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#横浜港</span>
+                <span class="news-tag">#立入制限</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 10 -->
+          <article class="news-article" data-category="press">
+            <div class="news-header">
+              <span class="news-date">2025.09.30</span>
+              <span class="news-category">プレスリリース</span>
+            </div>
+            <h3 class="news-title">創立22周年を迎えて</h3>
+            <p class="news-excerpt">
+              当社は本日、創立22周年を迎えました。
+              これもひとえに、皆様のご支援の賜物と心より感謝申し上げます。
+              今後も<span class="glitch">真実の追求</span>を使命とし、
+              社会の安全と科学の発展に貢献してまいります。
+            </p>
+            <div class="news-footer">
+              <a href="#" class="read-more">続きを読む →</a>
+              <div class="news-tags">
+                <span class="news-tag">#記念日</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top: 3rem; text-align: center;">
+          <p style="color: #9ca3af;">
+            過去のニュースをご覧になりたい方は、<a href="archive.html" style="color: #00ffff;">アーカイブページ</a>をご確認ください。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>このサイトはフィクションです。実在する人物・団体・事件・土地・施設・海蝕現象とは関係がありません。<br>
+        © 志文-- All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Filter functionality
+    function filterNews(category) {
+      const articles = document.querySelectorAll('.news-article');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      articles.forEach(article => {
+        if (category === 'all' || article.dataset.category === category) {
+          article.style.display = 'block';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    }
+
+    // Click on redacted text
+    document.querySelectorAll('.redacted').forEach(el => {
+      let clickCount = 0;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clickCount++;
+        if (clickCount === 3) {
+          el.style.background = 'transparent';
+          el.style.color = '#ff4d4d';
+        }
+      });
+    });
+
+    // Console easter egg
+    console.log('%c📰 ニュースアーカイブシステム', 'color: #00ffff; font-size: 16px; font-weight: bold;');
+    console.log('%c削除された記事へのアクセス: news-archive-███████', 'color: #9ca3af; font-size: 12px;');
+    console.log('%c警告: 機密指定された記事へのアクセスは記録されます', 'color: #ff4d4d; font-size: 10px;');
+  </script>
+</body>
+</html>
