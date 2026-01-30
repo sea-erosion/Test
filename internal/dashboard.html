@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ダッシュボード | 海蝕機関</title>
+  <link rel="icon" href="https://i.ibb.co/nsLNNwPw/favicon-ico.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Old+Mincho&display=swap">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/pages.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/ui_improvements.css">
+  
+  <style>
+    .dashboard {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .dashboard-title {
+      font-family: 'DotGothic16', sans-serif;
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .user-info {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .dashboard-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--accent-alpha);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 1rem 2rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      font-family: 'DotGothic16', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .quick-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-alpha);
+      padding: 2rem;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .quick-stat-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .quick-stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .quick-stat-value {
+      font-size: 2rem;
+      color: var(--accent);
+      font-family: 'DotGothic16', sans-serif;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .quick-stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: 'DotGothic16', sans-serif;
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      padding: 0.6rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 4px;
+      font-family: 'DotGothic16', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .import-export-section {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-alpha);
+      padding: 2rem;
+      border-radius: 4px;
+      margin-top: 2rem;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-tabs {
+        flex-direction: column;
+        border-bottom: none;
+      }
+
+      .tab-btn {
+        border-bottom: 1px solid var(--accent-alpha);
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+
+      .action-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ul>
+      <li><a href="index.html">ポータル</a></li>
+      <li>ダッシュボード</li>
+    </ul>
+  </nav>
+  
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">海蝕員ダッシュボード</h1>
+      <p class="user-info">権限レベル: <span id="userLevel">-</span> | 海蝕員ID: <span id="userName">-</span></p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats" id="quickStats">
+      <div class="quick-stat-card">
+        <div class="quick-stat-icon">📖</div>
+        <div class="quick-stat-value" id="stat-logs-read">0</div>
+        <div class="quick-stat-label">読んだ日報</div>
+      </div>
+      <div class="quick-stat-card">
+        <div class="quick-stat-icon">📔</div>
+        <div class="quick-stat-value" id="stat-diaries-read">0</div>
+        <div class="quick-stat-label">読んだ日記</div>
+      </div>
+      <div class="quick-stat-card">
+        <div class="quick-stat-icon">⭐</div>
+        <div class="quick-stat-value" id="stat-badges">0</div>
+        <div class="quick-stat-label">獲得バッジ</div>
+      </div>
+      <div class="quick-stat-card">
+        <div class="quick-stat-icon">🔖</div>
+        <div class="quick-stat-value" id="stat-bookmarks">0</div>
+        <div class="quick-stat-label">ブックマーク</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="dashboard-tabs">
+      <button class="tab-btn active" onclick="switchTab('progress')">📊 進捗状況</button>
+      <button class="tab-btn" onclick="switchTab('badges')">🏆 バッジ</button>
+      <button class="tab-btn" onclick="switchTab('bookmarks')">🔖 ブックマーク</button>
+      <button class="tab-btn" onclick="switchTab('settings')">⚙️ 設定</button>
+    </div>
+
+    <!-- Progress Tab -->
+    <div id="progressTab" class="tab-content active">
+      <div class="section-header">
+        <h2 class="section-title">進捗状況</h2>
+        <div class="action-buttons">
+          <button class="action-btn" onclick="progressTracker.exportProgress()">📥 エクスポート</button>
+          <button class="action-btn" onclick="document.getElementById('importProgressFile').click()">📤 インポート</button>
+          <button class="action-btn" onclick="progressTracker.resetProgress()">🔄 リセット</button>
+        </div>
+      </div>
+      <div id="progressDisplay"></div>
+      <input type="file" id="importProgressFile" class="file-input" accept=".json" onchange="handleProgressImport(event)">
+    </div>
+
+    <!-- Badges Tab -->
+    <div id="badgesTab" class="tab-content">
+      <div class="section-header">
+        <h2 class="section-title">獲得バッジ</h2>
+      </div>
+      <div class="badges-grid" id="badgesContainer"></div>
+    </div>
+
+    <!-- Bookmarks Tab -->
+    <div id="bookmarksTab" class="tab-content">
+      <div class="section-header">
+        <h2 class="section-title">ブックマーク</h2>
+        <div class="action-buttons">
+          <button class="action-btn" onclick="bookmarkManager.exportBookmarks()">📥 エクスポート</button>
+          <button class="action-btn" onclick="document.getElementById('importBookmarkFile').click()">📤 インポート</button>
+        </div>
+      </div>
+      <div id="bookmarksContainer"></div>
+      <input type="file" id="importBookmarkFile" class="file-input" accept=".json" onchange="handleBookmarkImport(event)">
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settingsTab" class="tab-content">
+      <div class="section-header">
+        <h2 class="section-title">テーマ設定</h2>
+        <div class="action-buttons">
+          <button class="action-btn" onclick="themeManager.exportSettings()">📥 エクスポート</button>
+          <button class="action-btn" onclick="document.getElementById('importThemeFile').click()">📤 インポート</button>
+        </div>
+      </div>
+      <div id="themeSettings"></div>
+      <input type="file" id="importThemeFile" class="file-input" accept=".json" onchange="handleThemeImport(event)">
+    </div>
+  </div>
+  
+  <footer></footer>
+  
+  <script type="module">
+    import { loadComponents } from './js/components.js';
+    import { initProgressTracker } from './js/progress_tracker.js';
+    import { initBookmarkManager } from './js/bookmark_manager.js';
+    import { initThemeManager } from './js/theme_manager.js';
+    
+    let progressTracker, bookmarkManager, themeManager;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await loadComponents();
+      
+      // Check login
+      const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+      if (!isLoggedIn) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Initialize systems
+      progressTracker = initProgressTracker();
+      bookmarkManager = initBookmarkManager();
+      themeManager = initThemeManager();
+
+      // Display user info
+      const userName = sessionStorage.getItem('userName') || 'GUEST';
+      const accessLevel = sessionStorage.getItem('accessLevel') || '1';
+      document.getElementById('userName').textContent = userName;
+      document.getElementById('userLevel').textContent = accessLevel;
+
+      // Update quick stats
+      updateQuickStats();
+
+      // Display content
+      progressTracker.updateProgressDisplay();
+      progressTracker.displayBadges();
+      bookmarkManager.updateBookmarkDisplay();
+      themeManager.createSettingsUI();
+
+      // Make instances globally available
+      window.progressTracker = progressTracker;
+      window.bookmarkManager = bookmarkManager;
+      window.themeManager = themeManager;
+    });
+
+    function updateQuickStats() {
+      const stats = progressTracker.getAchievementStats();
+      const bookmarkStats = bookmarkManager.getStats();
+
+      document.getElementById('stat-logs-read').textContent = stats.logsRead;
+      document.getElementById('stat-diaries-read').textContent = stats.diariesRead;
+      document.getElementById('stat-badges').textContent = stats.badgesEarned;
+      document.getElementById('stat-bookmarks').textContent = bookmarkStats.totalBookmarks;
+    }
+
+    window.switchTab = function(tabName) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected tab
+      const tabs = {
+        progress: 'progressTab',
+        badges: 'badgesTab',
+        bookmarks: 'bookmarksTab',
+        settings: 'settingsTab'
+      };
+
+      document.getElementById(tabs[tabName]).classList.add('active');
+      event.target.classList.add('active');
+    };
+
+    window.handleProgressImport = function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        progressTracker.importProgress(file);
+        updateQuickStats();
+      }
+    };
+
+    window.handleBookmarkImport = function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        bookmarkManager.importBookmarks(file);
+        updateQuickStats();
+      }
+    };
+
+    window.handleThemeImport = function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        themeManager.importSettings(file);
+      }
+    };
+  </script>
+</body>
+</html>
